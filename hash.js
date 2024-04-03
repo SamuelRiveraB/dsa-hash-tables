@@ -61,10 +61,23 @@ class HashTable {
   }
 }
 
-const myHashTable = new HashTable(50);
-console.log(myHashTable);
-myHashTable.set("grapes", 10000);
-myHashTable.set("apples", 54);
-myHashTable.set("oranges", 2);
-myHashTable.get("grapes");
-myHashTable.keys();
+function firstRecurringCharacter(input) {
+  for (let i = 0; i < input.length; i++) {
+    for (let j = i + 1; i < input.length; j++) {
+      if (input[i] === input[j]) {
+        console.log(input[i]);
+        return input[i];
+      }
+    }
+  }
+  return undefined;
+}
+
+// const myHashTable = new HashTable(50);
+// console.log(myHashTable);
+// myHashTable.set("grapes", 10000);
+// myHashTable.set("apples", 54);
+// myHashTable.set("oranges", 2);
+// myHashTable.get("grapes");
+// myHashTable.keys();
+firstRecurringCharacter([2, 5, 1, 2, 3, 5, 1, 2, 4]);
