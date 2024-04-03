@@ -71,7 +71,20 @@ function firstRecurringCharacter(input) {
     }
   }
   return undefined;
-}
+} // O(n^2)
+
+function firstRecurringCharacter2(input) {
+  const hash = {};
+  for (let i = 0; i < input.length; i++) {
+    if (hash[input[i]]) {
+      console.log(input[i]);
+      return input[i];
+    } else {
+      hash[input[i]] = true;
+    }
+  }
+  return undefined;
+} // O(n)
 
 // const myHashTable = new HashTable(50);
 // console.log(myHashTable);
@@ -80,4 +93,4 @@ function firstRecurringCharacter(input) {
 // myHashTable.set("oranges", 2);
 // myHashTable.get("grapes");
 // myHashTable.keys();
-firstRecurringCharacter([2, 5, 1, 2, 3, 5, 1, 2, 4]);
+firstRecurringCharacter2([2, 5, 1, 2, 3, 5, 1, 2, 4]);
