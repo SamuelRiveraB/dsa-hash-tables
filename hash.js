@@ -31,7 +31,7 @@ class HashTable {
       this.data[address] = [];
     }
     this.data[address].push([key, value]);
-  }
+  } // O(1)
 
   get(key) {
     let address = this._hash(key);
@@ -43,12 +43,26 @@ class HashTable {
           return currentBucket[i][1];
         }
       }
-    }
+    } // O(1) w no collisions, O(n) worst case
     return undefined;
+  }
+
+  keys() {
+    const keysArray = [];
+    for (let i = 0; i < this.data.length; i++) {
+      if (this.data[i]) {
+        keysArray.push(this.data[i][0][0]);
+      }
+    }
+    console.log(keysArray);
+    return keysArray;
   }
 }
 
 const myHashTable = new HashTable(50);
 console.log(myHashTable);
 myHashTable.set("grapes", 10000);
+myHashTable.set("apples", 54);
+myHashTable.set("oranges", 2);
 myHashTable.get("grapes");
+myHashTable.keys();
